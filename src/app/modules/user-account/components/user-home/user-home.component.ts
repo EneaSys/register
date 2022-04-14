@@ -2,16 +2,15 @@ import { Component } from '@angular/core';
 import { PigesAuthService } from '@piges/auth-angular';
 
 @Component({
-  selector: 'pagina-2-component',
-  templateUrl: './pagina-2.component.html',
-  styleUrls: ['./pagina-2.component.scss']
+  templateUrl: './user-home.component.html',
+  styleUrls: ['./user-home.component.scss']
 })
-export class Pagina2Component {
+export class UserHomeComponent {
 	constructor(
 		private pigesAuthService: PigesAuthService,
 	) {}
 
-	userInfo: any;
+	userInfo: any = {};
 
 	ngOnInit(): void {
 		this.loadUser();

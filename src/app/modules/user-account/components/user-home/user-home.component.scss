@@ -1,4 +1,4 @@
-#banana{
+#wrapper {
 	position: absolute;
 	
 	height: 100%;
@@ -7,5 +7,16 @@
 	background-image: url("/assets/bg.webp") ;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover;		
+	background-size: cover;
+
+	#page {
+		height: 90%;
+		width: 90%;
+
+		background-color: bisque;
+
+		#content {
+			padding: 10px;
+		}
+	}
 }

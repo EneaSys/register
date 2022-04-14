@@ -1,22 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Pagina1Component } from './modules/registration/component/pagina-1/pagina-1.component';
-import { Pagina2Component } from './modules/registration/component/pagina-2/pagina-2.component';
+import { PigesAuthGuard } from '@piges/auth-angular';
+import { Page404Component } from './core/layout/components/page-404/page-404.component';
+import { EneasysAccountHomeComponent } from './modules/main/components/home/home.component';
 import { RegistrationStep1Component } from './modules/registration/component/registration-step-1/registration-step-1.component';
+import { UserHomeComponent } from './modules/user-account/components/user-home/user-home.component';
+
 
 const routes: Routes = [
 	{
-		path: 'pagina-1',
-		component: Pagina1Component,
+		path: '',
+		component: EneasysAccountHomeComponent,
 	},
 	{
-		path: 'pagina-2',
-		component: Pagina2Component,
-	},
-	{
-		path: 'registration',
+		path: 'register',
 		component: RegistrationStep1Component,
-	}
+	},
+	{
+		path: 'my',
+		canActivate : [
+			PigesAuthGuard
+		],
+		component: UserHomeComponent,
+	},
+	{
+		path: '**',
+		pathMatch: 'full', 
+        component: Page404Component,
+	},
 ];
 
 @NgModule({
